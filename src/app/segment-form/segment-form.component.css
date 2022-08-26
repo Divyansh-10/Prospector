@@ -1,0 +1,58 @@
+@import '~@ctrl/ngx-emoji-mart/picker';
+
+body{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+  
+    
+}
+
+.segment-addition-form{
+    max-height: 80vh;
+    max-width: 30vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: rgb(100, 29, 29) !important;
+    gap: 2rem;
+    padding: 2rem 8rem;
+    border-radius: 5px ;
+    border: 2px solid black;
+    overflow-y: scroll;
+    background-color: whitesmoke;
+    z-index: 9999;
+}
+
+.segment-form{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.emoji-selector{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    background-color: whitesmoke;
+    text-align: end;
+    justify-content: space-between;
+}
+
+.current-emoji{
+    float: left;
+}
+
+button{
+    display: inline-block;
+    width: 8rem;
+    margin: 0 5% 0 0;
+}
+
+.button{
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    
+}

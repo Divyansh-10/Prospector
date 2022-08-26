@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    background-color: whitesmoke;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+.prospector-body {
+    position: static;
+    inset: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.segment-area {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem !important;
+    width: 20%;
+    min-height: 100vh;
+    background-color: rgb(212, 211, 211);
+    padding: 2% 0 2% 0;
+    box-sizing: border-box;
+}
+
+.segment-area > .title > h1{
+    letter-spacing: 0.001mm;
+    margin: 0;
+    padding-left: 0.5%;
+    gap: spa
+}
+
+.segment-area > .segment-table > p{
+    letter-spacing: 0.001mm;
+    font-weight: 700;
+    color: grey !important;
+    padding-left: 0.5%;
+} 
+
+.segment-area > .add-segment-button{
+    width: 100%;
+    margin-left: min(1.5rem, 10%);
+    margin-top: auto;
+}
+
+.segment-area > .add-segment-button > .add-segment{
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #0069D9!important;
+    color: white;
+    border: none;
+    width: 80%;  
+}
+
+.segment-area  .segment-table .segment-content-table{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5%;
+    gap: 1em;
+}
+.content-area {
+    display: flex;
+    width: 80%;
+    min-height: 100vh;
+}
+
+
+/* ___________________________________ */
+
+.segment-data > ul{
+    margin: 0;
+}
+
+.segment-data > ul > li > h2{
+    margin-block: 15px;
+    display: block;
+    font-weight: 700;
+}
+
+.segment-data{
+    padding: 2% 0 2% 0;
+}
+
+.addition-box{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border: 3px solid black;
+    border-radius: 7px;
+    margin: 5px 15px;
+    display: inline-block;
+}
+
+.border-box{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border: 1px solid blue;
+    box-shadow: 0 2px 10px;
+    border-radius: 7px;
+    margin: 5px 15px;
+    display: inline-block;
+}
+
+.addition-sign{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+.segments{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.segments > li > ul{
+    display: flex;
+    flex-direction: row;
+}
+
+.segment > div{
+    display: inline-block;
+}
+
+.segment-data-box{
+    display: flex;
+    flex-direction: row;
+}
+
+.box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.1rem;
+}

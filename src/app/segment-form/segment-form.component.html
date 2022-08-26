@@ -1,0 +1,30 @@
+<div class="segment-addition-form">
+
+    <h1>Add a Segment</h1>
+
+    <form class = "segment-form" [formGroup]="segmentForm" (ngSubmit)="onSubmit()">
+
+        <div class="name">
+            <label for="name" style="display: block;">Name*</label>
+            <input id="name" type="text"style="display: block;  border-radius: 5px;" formControlName="name">
+        </div>
+
+        <div class="icon">
+            <label for="icon" style="display: block;">Icon</label>
+            <div class ="emoji-selector" (click)="setEmoji($event)" type="text" style="display: block;  border-radius: 5px; background-color: white;"> <div class="current-emoji">{{currentEmoji}}</div>🙂</div>
+            <emoji-mart  id="emoji-mart" *ngIf="emojiMartVisibility" (emojiSelect)="addEmoji($event)"
+                title="Choose your emoji" formControlName="icon"></emoji-mart>
+        </div>
+
+        <div class="description">
+            <label style="display: block;" for="description">Description</label>
+            <textarea style="display: block;  border-radius: 5px;" name="description" id="description" cols="50" rows="8" formControlName="description"></textarea>
+        </div>
+
+        <div class="buttons">
+            <button type="submit" [disabled]="!segmentForm.valid">Submit</button>
+            <button (click) = "toggleSegmentForm()" >Cancel</button>
+        </div>
+        
+    </form>
+</div>
