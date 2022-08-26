@@ -6,12 +6,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Prospector</title>
 </head>
 
 <body>
   <app-segment-form *ngIf="segmentVisibility"></app-segment-form>
-
 
   <div class="prospector-body">
 
@@ -42,9 +42,10 @@
 
       <div class="segment-data">
 
-        <ul style="list-style: none;"class = "segments">
+        <ul style="list-style: none;" class = "segments">
           <li *ngFor = "let segment of segments">
             <h2>{{segment.emoji}}{{segment.name}}</h2>
+            
             <ul style="list-style: none;">
               <li *ngFor = "let box of segment.data">
                 <div class="box">
@@ -70,8 +71,9 @@
       </div>
     </div>
   </div>
-  <!-- *ngIf= "tableVisibility" -->
-  <app-table-form  ></app-table-form>
+  
+  <app-table-form  *ngIf= "tableVisibility" ></app-table-form>
+ 
 
 </body>
 
