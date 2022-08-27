@@ -5,27 +5,31 @@
     <form class = "table-form" [formGroup]="tableForm" (ngSubmit)="onSubmit()">
 
         <div class="name">
-            <label for="name" style="display: block;">Name*</label>
+            <label for="name" style="display: block;"><p>Name*</p></label>
             <input id="name" type="text"style="display: block;  border-radius: 5px; border: 1px solid rgb(220, 217, 217);" formControlName="name">
         </div>
 
         <div class="icon">
-            <label for="icon" style="display: block;">Icon</label>
+            <label for="icon" style="display: block;"><p>Icon</p></label>
             <div (click)="toggleEmojiMart()" class ="emoji-selector" type="text" style="display: block;  border-radius: 5px; background-color: whitesmoke;"> <div class="current-emoji">{{currentEmoji}}</div>🙂</div>
             <emoji-mart  id="emoji-mart" *ngIf="emojiMartVisibility" (emojiSelect)="addEmoji($event)"
                 title="Choose your emoji" formControlName="icon"></emoji-mart>
         </div>
 
-        <div class="color">
-            <label style="display: block;" for="color">Color Picker</label>
-            <div class ="emoji-selector" type="text" style="display: block;  border-radius: 5px; background-color: white;"> <div (click)="setColor($event)" class="current-emoji"></div>+</div>
-            <!-- <div class="color-picker">
-                <div *ngFor = "let color of colorPalette" class="color">
-                    <div class="color"></div>
+        <div class="color-box-outer">
+            <label for="color"><p>Color Picker</p></label>
+            <div #colorName class = "color-box"  (click)="toogleColorPallete()"  style="border-radius: 5px; background-color: white;"><div class="current-emoji"></div><p style= "margin:auto">+</p></div>
+            <div *ngIf = "colorPalleteVisibility" class="color-picker">
+                <div *ngFor = "let colorItem of colorPalette">
+                    <div  class= "color" (click) = "getColor(colorItem)" [ngStyle] = "{'background-color' : colorItem}" ></div>
                 </div>
-            </div>  -->
+            </div> 
+            
         </div>
-        <button type = "submit" [disabled]="!tableForm.valid">Submit</button>
-        <button (click) = "toggleTable()">Cancel</button>
+        <div class="buttons">
+            <button type = "submit" class = "submit"  [disabled]="!tableForm.valid" [style.background-color]="tableForm.invalid ? 'rgb(186, 186, 186)' : '#0069D9'">Submit</button>
+            <button (click) = "toggleTable()">Cancel</button>
+        </div>
+        
     </form>
 </div>

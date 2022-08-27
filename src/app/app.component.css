@@ -1,13 +1,20 @@
+
+
 body {
     margin: 0;
     padding: 0;
     text-decoration: none;
     background-color: whitesmoke;
+
+    
 }
 
-p{
+.prospector-body p{
     margin: 0;
     padding: 0;
+    font-family: 'Ubuntu', sans-serif ;
+    font-weight: 700;
+    font-size: medium;
 }
 
 .prospector-body {
@@ -26,13 +33,17 @@ p{
     background-color: rgb(212, 211, 211);
     padding: 2% 0 2% 0;
     box-sizing: border-box;
+    padding-left: 1%;
 }
 
 .segment-area > .title > h1{
     letter-spacing: 0.001mm;
     margin: 0;
     padding-left: 0.5%;
-    gap: spa
+}
+
+.segment-table{
+    padding-left: 1%;
 }
 
 .segment-area > .segment-table > p{
@@ -40,12 +51,14 @@ p{
     font-weight: 700;
     color: grey !important;
     padding-left: 0.5%;
+    
 } 
 
 .segment-area > .add-segment-button{
     width: 100%;
     margin-left: min(1.5rem, 10%);
     margin-top: auto;
+    
 }
 
 .segment-area > .add-segment-button > .add-segment{
@@ -55,7 +68,11 @@ p{
     background-color: #0069D9!important;
     color: white;
     border: none;
-    width: 80%;  
+    width: 60%;  
+}
+
+button{
+    cursor: pointer;
 }
 
 .segment-area  .segment-table .segment-content-table{
@@ -64,10 +81,12 @@ p{
     padding: 0.5%;
     gap: 1em;
 }
+
 .content-area {
     display: flex;
     width: 80%;
     min-height: 100vh;
+    overflow-y: scroll;
 }
 
 
@@ -81,9 +100,11 @@ p{
     margin-block: 15px;
     display: block;
     font-weight: 700;
+    font-family: 'Ubuntu', sans-serif ;
 }
 
 .segment-data{
+    overflow-x: auto;
     padding: 2% 0 2% 0;
 }
 
@@ -91,18 +112,22 @@ p{
     position: relative;
     width: 60px;
     height: 60px;
-    border: 3px solid black;
+    border: 2px solid rgb(80, 80, 80);
     border-radius: 7px;
     margin: 5px 15px;
     display: inline-block;
+    cursor: pointer;
+}
+
+.addition-box:hover{
+    background-color: rgb(224, 221, 221);
 }
 
 .border-box{
     position: relative;
     width: 60px;
     height: 60px;
-    border: 1px solid blue;
-    box-shadow: 0 2px 10px;
+    border: 2px solid rgb(230, 230, 230);
     border-radius: 7px;
     margin: 5px 15px;
     display: inline-block;
@@ -118,12 +143,16 @@ p{
 .segments{
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 4rem;
+    
 }
 
 .segments > li > ul{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 
 .segment > div{
@@ -133,12 +162,38 @@ p{
 .segment-data-box{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    
 }
 
 .box{
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 0.1rem;
 }
+
+.toggle-prospector:focus{
+    background-color: rgb(207, 207, 207);
+}
+
+@media (max-width: 940px) {
+
+    .segment-area{
+        width: 30%;
+    }
+
+    .content-area {
+        width: 70%;
+    }
+}
+
+.box > p{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: small;
+    font-weight: 300;
+}
+
+

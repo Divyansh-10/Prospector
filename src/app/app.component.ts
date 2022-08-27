@@ -22,10 +22,7 @@ segments : segment[] = [
     "data": [{
       "name" : "test-1",
       "emoji": "😂"
-    },{
-      "name" : "test-2",
-      "emoji": "😂"
-    }]
+    },]
   },
   {
     "name" : "Jason",
@@ -37,7 +34,8 @@ segments : segment[] = [
       "name" : "test-2",
       "emoji": "😂"
     }]
-  }
+  },
+  
 ]
 
 
@@ -47,10 +45,12 @@ segments : segment[] = [
 
   flipSegmentVisibility(){
     this.segmentVisibility = !this.segmentVisibility;
+    this.tableVisibility = false;
   }
 
   flipTableVisibility(){
     this.tableVisibility = !this.tableVisibility;
+    this.segmentVisibility = false;
   }
 
   activateSegment(segmentName: String){

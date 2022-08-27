@@ -1,18 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit,  ViewChild, AfterViewInit, Renderer2} from '@angular/core';
 import { AppComponent } from '../app.component';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { tableContent } from '../interfaces/table';
+
 
 @Component({
   selector: 'app-table-form',
   templateUrl: './table-form.component.html',
   styleUrls: ['./table-form.component.css']
 })
-export class TableFormComponent implements OnInit {
+export class TableFormComponent implements OnInit, AfterViewInit{
+
   
+  
+  @ViewChild('colorName')input: ElementRef<HTMLInputElement> | undefined;
+  @ViewChild('formValidity')formValidity: ElementRef | undefined;
+
   emojiMartVisibility: boolean = false;
   currentEmoji: any;
-  currentColor: any;
+  currentColor: any = 'red';
+  colorPalleteVisibility: boolean = false;
+   
   colorPalette = [
 
     'rgba(207, 223, 255, 1)', 'rgba(156, 199, 255, 1)', 'rgba(45, 127, 249, 1)', 'rgba(0, 103, 255, 1)', 'rgba(0, 84, 209, 1)',
@@ -36,15 +44,25 @@ export class TableFormComponent implements OnInit {
     'rgba(238, 238, 238, 1)', 'rgba(204, 204, 204, 1)', 'rgba(172, 172, 172, 1)', 'rgba(102, 102, 102, 1)', 'rgba(68, 68, 68, 1)'
     
     ];
-
-   
+    
+ 
   constructor(
-    private app: AppComponent
-  ) { }
+    private app: AppComponent,
+    private renderer: Renderer2,
+    
+  ) {}
 
   ngOnInit(): void {
+
   }
 
+  ngAfterViewInit(): void{
+   () => {
+    if(this.tableForm.valid)
+    this.renderer.setStyle(this?.formValidity?.nativeElement, 'background', '#0069D9');
+   }
+  }
+  
   tableForm = new FormGroup({
     name : new FormControl('', [Validators.required]),
     icon : new FormControl(''),
@@ -57,7 +75,6 @@ export class TableFormComponent implements OnInit {
     });
 
     this.currentEmoji = event.emoji.native;
-    console.log()
     this.emojiMartVisibility = !this.emojiMartVisibility;
   }
 
@@ -67,6 +84,19 @@ export class TableFormComponent implements OnInit {
   
   toggleTable(){
     this.app.flipTableVisibility();
+  }
+
+  toogleColorPallete(){
+    this.colorPalleteVisibility = !this.colorPalleteVisibility;
+  }
+
+  getColor(color: any){
+    this.tableForm.patchValue({
+      color: color
+    });
+    this.renderer.setStyle(this?.input?.nativeElement, 'background', color);
+    this.colorPalleteVisibility = !this.colorPalleteVisibility;
+  
   }
 
   onSubmit(){
@@ -82,15 +112,17 @@ export class TableFormComponent implements OnInit {
 
     
     this.app.segments.map((segment) => {
-      if(segment.name === currentSegment)
+      if(segment.name === currentSegment){
         
       if(!segment.data){
-        segment.data =[];
+        segment.data = new Array;
       }
+
       segment.data?.push(table);
-        
+     }
     })
 
+  
     this.app.segments.map((segment) => {
       console.log(segment);
     })
@@ -98,10 +130,8 @@ export class TableFormComponent implements OnInit {
     this.toggleTable();
   }
 
-  setColor(event: any){
-
+  addColor(colorItem: any){
+    console.log(colorItem);
   }
-
-
 
 }

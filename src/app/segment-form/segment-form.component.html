@@ -1,28 +1,28 @@
 <div class="segment-addition-form">
 
-    <h1>Add a Segment</h1>
+    <h3>Add a Segment</h3>
 
     <form class = "segment-form" [formGroup]="segmentForm" (ngSubmit)="onSubmit()">
 
         <div class="name">
-            <label for="name" style="display: block;">Name*</label>
+            <label for="name" style="display: block;"><p>Name*</p></label>
             <input id="name" type="text"style="display: block;  border-radius: 5px;" formControlName="name">
         </div>
 
         <div class="icon">
-            <label for="icon" style="display: block;">Icon</label>
+            <label for="icon" style="display: block;"><p>Icon</p></label>
             <div class ="emoji-selector" (click)="setEmoji($event)" type="text" style="display: block;  border-radius: 5px; background-color: white;"> <div class="current-emoji">{{currentEmoji}}</div>🙂</div>
             <emoji-mart  id="emoji-mart" *ngIf="emojiMartVisibility" (emojiSelect)="addEmoji($event)"
                 title="Choose your emoji" formControlName="icon"></emoji-mart>
         </div>
 
         <div class="description">
-            <label style="display: block;" for="description">Description</label>
-            <textarea style="display: block;  border-radius: 5px;" name="description" id="description" cols="50" rows="8" formControlName="description"></textarea>
+            <label style="display: block; " for="description"><p>Description</p></label>
+            <textarea style="display: block; border: 1px solid rgb(220, 217, 217); border-radius: 5px;" name="description" id="description" cols="63" rows="8" formControlName="description"></textarea>
         </div>
 
         <div class="buttons">
-            <button type="submit" [disabled]="!segmentForm.valid">Submit</button>
+            <button type="submit" [disabled]="!segmentForm.valid" [style.background-color]="segmentForm.invalid ? 'rgb(186, 186, 186)' : '#0069D9'">Submit</button>
             <button (click) = "toggleSegmentForm()" >Cancel</button>
         </div>
         
